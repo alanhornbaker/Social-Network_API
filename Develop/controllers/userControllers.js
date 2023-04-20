@@ -36,4 +36,74 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+  // UPDATE user
+  async updateUser(req, res) {
+    try {
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: req.params.id },
+        { $set: req.body },
+        { new: true }
+      );
+
+      if (!updatedUser) {
+        return res.status(404).json("No user found");
+      }
+
+      res.json(updatedUser);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+  // DELETE user
+  async deleteUser(req, res) {
+    try {
+      const deletedUser = await User.findOneAndDelete({ _id: req.params.id });
+
+      await Thought.deleteMany({ username: deletedUser.username });
+
+      if (!deletedUser) {
+        return res.status(404).json("No user found");
+      }
+
+      res.json(deletedUser);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+  // Add friend
+  async addFriend(req, res) {
+    try {
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.id },
+        { $push: { friends: req.params.friendId } },
+        { new: true }
+      ).populate("friends");
+
+      if (!user) {
+        return res.status(404).json("No such user");
+      }
+
+      res.json(user);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+  // Remove friend
+  async removeFriend(req, res) {
+    try {
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.id },
+        { $pull: { friends: req.params.friendId } },
+        { new: true }
+      ).populate("friends");
+
+      if (!user) {
+        return res.status(404).json("No such user");
+      }
+
+      res.json(user);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
 };
