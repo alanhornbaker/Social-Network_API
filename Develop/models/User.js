@@ -1,7 +1,7 @@
 const { Schema, model, Types, mongoose } = require("mongoose");
 
 // Schema to create User model
-const userSchema = new mongoose.Schema(
+const userSchema = new Schema(
   {
     username: {
       type: String,
@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema(
       required: true,
       validate: {
         validator: function (v) {
-          return /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(v);
+          return /^([a-zA-Z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(v);
         },
       },
     },
@@ -46,6 +46,6 @@ userSchema.virtual("friendCount").get(function () {
 });
 
 // Initialize our User model
-const User = mongoose.model("user", userSchema);
+const User = model("user", userSchema);
 
 module.exports = User;

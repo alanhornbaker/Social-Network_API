@@ -80,82 +80,6 @@ const usernames = [
 
 // console.log(emailAddresses);
 
-const emailAddresses = [
-  "Aaran123@yahoo.com",
-  "Aaren456@yahoo.com",
-  "Aarez789@yahoo.com",
-  "Aarman012@yahoo.com",
-  "Aaron345@yahoo.com",
-  "Aaron-James678@yahoo.com",
-  "Aarron901@yahoo.com",
-  "Aaryan234@yahoo.com",
-  "Aaryn567@yahoo.com",
-  "Aayan890@yahoo.com",
-  "Aazaan1234@yahoo.com",
-  "Abaan5678@yahoo.com",
-  "Abbas9012@yahoo.com",
-  "Abdallah3456@yahoo.com",
-  "Abdalroof7890@yahoo.com",
-  "Abdihakim123@yahoo.com",
-  "Abdirahman456@yahoo.com",
-  "Abdisalam789@yahoo.com",
-  "Abdul234@yahoo.com",
-  "Abdul-Aziz567@yahoo.com",
-  "Abdulbasir890@yahoo.com",
-  "Abdulkadir1234@yahoo.com",
-  "Abdulkarem5678@yahoo.com",
-  "Smith9012@yahoo.com",
-  "Jones2345@yahoo.com",
-  "Coollastname678@yahoo.com",
-  "enter_name_here123@yahoo.com",
-  "Ze456@yahoo.com",
-  "Zechariah789@yahoo.com",
-  "Zeek012@yahoo.com",
-  "Zeeshan345@yahoo.com",
-  "Zeid678@yahoo.com",
-  "Zein901@yahoo.com",
-  "Zen234@yahoo.com",
-  "Zendel567@yahoo.com",
-  "Zenith890@yahoo.com",
-  "Zennon1234@yahoo.com",
-  "Zeph5678@yahoo.com",
-  "Zerah9012@yahoo.com",
-  "Zhen2345@yahoo.com",
-  "Zhi678@yahoo.com",
-  "Zhong012@yahoo.com",
-  "Zhuo345@yahoo.com",
-  "Zi6789@yahoo.com",
-  "Zidane1234@yahoo.com",
-  "Zijie5678@yahoo.com",
-  "Zinedine901@yahoo.com",
-  "Zion2345@yahoo.com",
-  "Zishan678@yahoo.com",
-  "Ziya012@yahoo.com",
-  "Ziyaan345@yahoo.com",
-  "Zohaib6789@yahoo.com",
-  "Zohair1234@yahoo.com",
-  "Zoubaeir5678@yahoo.com",
-  "Zubair9012@yahoo.com",
-  "Zubayr2345@yahoo.com",
-  "Zuriel6789@yahoo.com",
-  "Xander123@yahoo.com",
-  "Jared456@yahoo.com",
-  "Courtney789@yahoo.com",
-  "Gillian012@yahoo.com",
-  "Clark345@yahoo.com",
-  "Jared678@yahoo.com",
-  "Grace901@yahoo.com",
-  "Kelsey234@yahoo.com",
-  "Tamar567@yahoo.com",
-  "Alex890@yahoo.com",
-  "Mark1234@yahoo.com",
-  "Tamar5678@yahoo.com",
-  "Farish9012@yahoo.com",
-  "Sarah3456@yahoo.com",
-  "Nathaniel7890@yahoo.com",
-  "Parker123@yahoo.com",
-];
-
 const thoughts = [
   "Decision Trackers are awesome",
   "Find My Phone is a useful app",
@@ -238,7 +162,7 @@ const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 // Gets a random full name
 const getRandomUsername = () =>
   `${getRandomArrItem(usernames)} ${getRandomArrItem(usernames)}`;
-
+console.log(usernames);
 // Function to generate random comments given a number (ex. 10 comments === getRandomComments(10))
 const getRandomThought = (int) => {
   const results = [];
@@ -253,9 +177,7 @@ const getRandomThought = (int) => {
 
 // Export the functions for use in seed.js
 module.exports = {
-  getRandomUsername,
-  getRandomEmail,
-  getRandomReaction,
-  getRandomThought,
-  genRandomIndex,
+  usernames,
+  thoughts,
+  reactions,
 };

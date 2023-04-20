@@ -1,6 +1,6 @@
-const { Schema, Types, mongoose } = require("mongoose");
+const { Schema, Types, model, mongoose } = require("mongoose");
 
-const reactionSchema = new mongoose.Schema(
+const reactionSchema = new Schema(
   {
     reactionId: {
       type: Schema.Types.ObjectId,
@@ -41,7 +41,7 @@ reactionSchema.virtual("formatTimestamp").get(function () {
   });
 });
 
-const thoughtSchema = new mongoose.Schema(
+const thoughtSchema = new Schema(
   {
     thoughtText: {
       type: String,
@@ -74,5 +74,5 @@ thoughtSchema
   });
 
 // Initialize our Thought model
-const Thought = mongoose.model("thought", thoughtSchema);
+const Thought = model("thought", thoughtSchema);
 module.exports = Thought;
