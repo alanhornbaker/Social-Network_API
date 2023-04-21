@@ -51,22 +51,30 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 ## Wireframes and Mock-Ups
 
+![Get Users](/Social-Network_API/Develop/public/images/routes-get-users.PNG "Get All Users")
+![Get Thoughts](/Social-Network_API/Develop/public/images/routes-get-thoughts.PNG "Get All Thoughts")
+![Get One User By Id](/Social-Network_API/Develop/public/images/routes-get-oneUser.PNG "Get One User By Id")
+![Get One Thought By Id](/Social-Network_API/Develop/public/images/routes-get-oneThought.PNG "Get One Thought By Id")
+![Create New User](/Social-Network_API/Develop/public/images/routes-post-user.PNG "Create New User")
+![Update User](/Social-Network_API/Develop/public/images/route-put-updateUser.PNG "Update User")
+![Delete User](/Social-Network_API/Develop/public/images/routes-delete-user.PNG "Delete User")
+
 ## Models
 
 User
 
 username
-
 String
 Unique
 Required
 Trimmed
-email
 
+email
 String
 Required
 Unique
 Must match a valid email address (look into Mongoose's matching validation)
+
 thoughts
 
 Array of \_id values referencing the Thought model

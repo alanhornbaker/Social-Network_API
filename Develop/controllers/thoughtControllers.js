@@ -30,12 +30,11 @@ module.exports = {
   async createThought(req, res) {
     try {
       const newThought = await Thought.create({
-        username: req.body.username,
         thoughtText: req.body.thoughtText,
       });
-      const user = await User.updateOne(
+      const user = await User.findOneAndUpdate(
         { _id: req.body.userId },
-        { $push: { thoughts: newThought.id } },
+        { $addToSet: { thoughts: newThought._id } },
         { new: true }
       );
 
